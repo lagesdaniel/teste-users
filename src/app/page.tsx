@@ -110,7 +110,7 @@ export default function Home() {
                   </button>
               </div>
             )}
-            {/* EXIBIR TABELA APOS CLIQUE DO BOTAO */}
+            {/* EXIBIR TABELA E OCULTAR DIV APOS O CLIQUE */}
             <AnimatePresence>
               {showTable && (
                 <motion.div

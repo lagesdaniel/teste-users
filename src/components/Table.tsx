@@ -18,6 +18,7 @@ function UsersTable({ data }: TableProps) {
         data.reduce((acc, user) => ({ ...acc, [user.id]: true }), {})
     );
 
+    //ALTERAR STATUS DO USUARIO
     const handleToggle = (userId: number) => {
         return (event: React.MouseEvent<HTMLButtonElement>) => {
             event.preventDefault();
@@ -49,15 +50,15 @@ function UsersTable({ data }: TableProps) {
                             <tr className="bg-[#3A3845] text-left">
                                 <th className="p-1 sm:p-2 border text-xs sm:text-sm">ID</th>
                                 <th className="p-1 sm:p-2 border text-xs sm:text-sm">Nome</th>
-                                <th className="p-1 sm:p-2 border text-xs sm:text-sm hidden sm:table-cell">Email</th>
-                                <th className="p-1 sm:p-2 border text-xs sm:text-sm hidden md:table-cell">Telefone</th>
+                                <th className="p-1 sm:p-2 border text-xs sm:text-sm sm:table-cell">Email</th>
+                                <th className="p-1 sm:p-2 border text-xs sm:text-sm md:table-cell">Telefone</th>
                                 <th className="p-1 sm:p-2 border text-xs sm:text-sm">Detalhes</th>
                                 <th className="p-1 sm:p-2 border text-xs sm:text-sm">Status</th>
                             </tr>
                         </thead>
                         <tbody>
                             {data.map((user) => {
-                                // Estado do modal para cada usuário
+                                // ESTADO DO MODAL PARA CADA USUARIO
                                 const [isOpen, setIsOpen] = useState(false);
 
                                 console.log("User data:", user);
@@ -71,10 +72,10 @@ function UsersTable({ data }: TableProps) {
                                             <td className={`p-1 sm:p-2 border text-left text-xs sm:text-sm ${!userStatus[user.id] ? 'line-through' : ''}`}>
                                                 {user.name}
                                             </td>
-                                            <td className={`p-1 sm:p-2 border text-left text-xs sm:text-sm hidden sm:table-cell ${!userStatus[user.id] ? 'line-through' : ''}`}>
+                                            <td className={`p-1 sm:p-2 border text-left text-xs sm:text-sm  sm:table-cell ${!userStatus[user.id] ? 'line-through' : ''}`}>
                                                 {user.email}
                                             </td>
-                                            <td className={`p-1 sm:p-2 border text-right text-xs sm:text-sm hidden md:table-cell ${!userStatus[user.id] ? 'line-through' : ''}`}>
+                                            <td className={`p-1 sm:p-2 border text-right text-xs sm:text-sm  md:table-cell ${!userStatus[user.id] ? 'line-through' : ''}`}>
                                                 {user.phone}
                                             </td>
                                             <td className="p-1 sm:p-2 border text-center">
@@ -192,12 +193,7 @@ function UsersTable({ data }: TableProps) {
                                                                             )}
                                                                         </span>
                                                                     </div>
-                                                                
-                                                                
                                                                 </div>
-
-                                                                
-
                                                                 <div className="mt-6 flex justify-end">
                                                                     <button
                                                                         type="button"
